@@ -39,12 +39,8 @@ public class RestClient {
 
 	public RestClient(){
 		httpClient = new DefaultHttpClient();
-		endpoints = new HashSet<String>(Arrays.asList("targets","targettypes","audittrails","audittrailtypes","events","jobs","JobInstances",
-				"dataClassificationTest","dataModels","reports","reportdefinitions","targetgroups","seturl","listConfig","setdebug","setFile"));
 		settings = new HashSet<String>(Arrays.asList("seturl","listconfig","setdebug","setfiledir")); 
 		methods = new HashSet<String>(Arrays.asList("POST","GET","PATCH","PUT","DELETE"));
-		commands=new HashSet<String>(Arrays.asList("createTarget","listTargets","createAuditTrail","listAuditTrail","listJobs",
-				"listAuditTrailTypes","listEvents","setFlag","getConfig"));
 		String pwd=System.getProperty("user.dir"),line=null;
 		configFile="config.txt";
 		File f1= new File(pwd+"/"+configFile);
@@ -98,12 +94,6 @@ public class RestClient {
 	 * seturl <url>
 	 * listconfig
 	 * setloglevel <true false>
-	 * targets GET 
-	 * targets/1 GET
-	 * targets POST jSONfile
-	 * targets/1 DELETE
-	 * targets/1 PUT jSONfile
-	 * targets/1 PATCH jSONfile 
 	 * <url> GET
 	 */
 
@@ -230,14 +220,14 @@ public class RestClient {
 				System.out.print(args[i]+" ");
 		System.out.println("\n---------------------------------------------------------");
 		System.out.println("- sh restclient <url/endpoint> <method> <jsonFile>      -");
-		System.out.println("- sh restclient http://abc/targets GET ------------------");
-		System.out.println("- sh restclient targets GET -----------------------------");
-		System.out.println("- sh restclient targets POST jsonFile -------------------");
-		System.out.println("- sh restclient targets/1 PUT jsonFile -----------------");
+		System.out.println("- sh restclient http://abc/myEndpoint GET ---------------");
+		System.out.println("- sh restclient myEndpoint GET --------------------------");
+		System.out.println("- sh restclient endpnts POST jsonFile -------------------");
+		System.out.println("- sh restclient endpnts/1 PUT jsonFile ------------------");
 		System.out.println("- sh restclient seturl http://adc/ ----------------------");
 		System.out.println("- sh restclient listconfig ------------------------------");
 		System.out.println("- sh restclient setdebug <true/false> -------------------");
-		System.out.println("- sh restclient audittrails/1 delete --------------------");
+		System.out.println("- sh restclient endpoints/1 delete ---__-----------------");
 		System.out.println("- sh restclient setFileDir <json file's directory loc> --");
 		System.out.println("---------------------------------------------------------\n");
 	}
